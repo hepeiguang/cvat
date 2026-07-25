@@ -1,0 +1,7 @@
+# CVAT 开发环境覆盖配置
+# 用于配置 kvrocks 监听端口为 6666（与 CVAT 期望端口一致）
+# 使用方法: docker compose -f docker-compose.yml -f docker-compose.override.yml up -d
+
+services:
+  cvat_redis_ondisk:
+    command: ["--port", "6666", "--compact-cron", "0 3 * * *"]
